@@ -1,9 +1,17 @@
 <template>
-  <v-container fluid>
-    <v-app-bar>
-      <v-app-bar-title>SpaceX Launches</v-app-bar-title>
+  <v-container
+    fluid
+  >
+    <v-app-bar color="grey-darken-4">
+      <v-app-bar-title>
+        SpaceX Launches
+      </v-app-bar-title>
     </v-app-bar>
-    {{ nextLaunch }}
+    <v-row>
+      <v-col align="center">
+        <NextLaunchPanel />
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -12,23 +20,18 @@
 import { defineComponent } from 'vue';
 
 // Internal
-import API from '@/api/methods';
+import NextLaunchPanel from '@/components/NextLaunchPanel.vue';
 
 export default defineComponent({
   name: 'HomeView',
+  components: {
+    NextLaunchPanel,
+  },
   data() {
     return {
-      nextLaunch: '',
+      // eslint-disable-next-line global-require
+      imageUrl: require('@/assets/space.jpg'),
     };
-  },
-  created() {
-    this.getNextLaunch();
-  },
-  methods: {
-    async getNextLaunch() {
-      const RESPONSE = await API.getNextLaunch();
-      this.nextLaunch = RESPONSE.data;
-    },
   },
 });
 </script>
