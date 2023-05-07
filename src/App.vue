@@ -1,5 +1,5 @@
 <template>
-  <v-app style="background-color: #000000">
+  <v-app class="app-background">
     <v-main>
       <router-view/>
     </v-main>
@@ -16,3 +16,11 @@ export default {
   }),
 };
 </script>
+
+<style>
+  .app-background {
+    background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.6)),url(@/assets/space.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+</style>

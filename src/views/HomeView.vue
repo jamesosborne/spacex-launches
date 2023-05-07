@@ -3,8 +3,12 @@
     fluid
   >
     <v-app-bar color="grey-darken-4">
+
       <v-app-bar-title>
-        SpaceX Launches
+        <v-img
+          contain
+          :src="require('@/assets/logo.png')"
+          width="400px"/>
       </v-app-bar-title>
     </v-app-bar>
     <v-row>
